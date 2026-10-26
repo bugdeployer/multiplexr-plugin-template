@@ -43,7 +43,7 @@ The release workflow runs checks and publishes the signed package and `SHA256SUM
 
 Declare `http.request` in the manifest and list exact HTTPS origins in `plugin/network-origins.json`, for example `https://api.example.org`. Add `credentials.use` when requesting host-managed credentials. Configure credentials in Multiplexr; plugin code does not read the secret.
 
-The current host injects Bearer credentials and supports bounded HTTPS GET requests. Confirm that a provider fits that contract before implementing it. Use mock responses in tests rather than live service credentials.
+Multiplexr 0.5.1 adds JSON POST and host-managed X-API-Key headers alongside HTTPS GET and Bearer credentials. Use AppShell.httpJson for JSON requests. Confirm that a provider fits that contract before implementing it. Use mock responses in tests rather than live service credentials.
 
 ## Files
 
@@ -55,7 +55,7 @@ The current host injects Bearer credentials and supports bounded HTTPS GET reque
 | `types/` | SDK globals for JavaScript type checking |
 | `dist/` | Generated artifacts; ignored by Git |
 
-Dependencies are locked to SDK 1.1.0 and TypeScript 5.9.3. Plugin code targets Multiplexr protocol 1, not Node.js. Tests execute only trusted source fixtures; Node's VM is not a production plugin sandbox.
+Dependencies are locked to SDK 1.2.0 and TypeScript 5.9.3. Plugin code targets Multiplexr protocol 1, not Node.js. Tests execute only trusted source fixtures; Node's VM is not a production plugin sandbox.
 
 [API reference](https://github.com/bugdeployer/Multiplexr/blob/main/packages/multiplexr_plugin_sdk/API.md) · [SDK source](https://github.com/bugdeployer/Multiplexr/tree/main/packages/multiplexr_plugin_sdk)
 
